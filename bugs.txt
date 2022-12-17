@@ -1,0 +1,2 @@
+1.el-dialog第一次打开获取不到元素 --使用this.$nextTick
+2.el-dialog数据不同步 --this.$$forceupdate()强制更新
