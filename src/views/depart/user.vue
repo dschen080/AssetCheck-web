@@ -66,7 +66,7 @@
     </div>
 
     <el-dialog
-      title="添加资产单位信息"
+      title="添加资产负责人信息"
       :visible.sync="dialogVisible"
       width="40%">
       <el-form :model="newList"
