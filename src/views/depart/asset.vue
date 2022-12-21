@@ -499,7 +499,7 @@
         });
       },
       downloadexcel(){
-        var downloadurl = '47.118.51.178:8090/资产台账-数据导出1114.xlsx'; //待改进
+        var downloadurl = '47.118.51.178/static/资产台账-数据导出1114.xlsx'; //待改进
         window.open(downloadurl);
       },
       handleSearchList() {
