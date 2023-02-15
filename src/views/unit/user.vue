@@ -11,22 +11,22 @@
                 :data="list"
                 style="width: 100%;"
                 v-loading="listLoading" border>
-        <el-table-column label="资产单位代码" width="200" align="center">
+        <el-table-column label="资产单位代码" width="150" align="center">
           <template slot-scope="scope">{{scope.row.orgid}}</template>
         </el-table-column>
-        <el-table-column label="员工id" width="200" align="center">
+        <el-table-column label="员工id" width="100" align="center">
           <template slot-scope="scope">{{scope.row.username4unit}}</template>
         </el-table-column>
-        <el-table-column label="真实姓名" width="200" align="center">
+        <el-table-column label="真实姓名" width="100" align="center">
           <template slot-scope="scope">{{scope.row.realname}}</template>
         </el-table-column>
-        <el-table-column label="用户名类型" width="200" align="center">
+        <el-table-column label="用户名类型" width="150" align="center">
           <template slot-scope="scope">{{scope.row.usertype}}</template>
         </el-table-column>
-        <el-table-column label="联系电话" width="200" align="center">
+        <el-table-column label="联系电话" width="180" align="center">
           <template slot-scope="scope">{{scope.row.phone}}</template>
         </el-table-column>
-        <el-table-column label="部门" width="200" align="center">
+        <el-table-column label="部门" width="130" align="center">
           <template slot-scope="scope">{{scope.row.sectname}}</template>
         </el-table-column>
         <el-table-column label="备注"  align="center">
@@ -152,6 +152,17 @@
           this.listloading = false;
           this.list = response.data.list;
           this.total = response.data.total;
+          for(let i in this.list){
+            if(this.list[i].usertype==1){
+              this.list[i].usertype="单位资产管理员";
+            }
+            else if(this.list[i].usertype==3){
+              this.list[i].usertype="部门资产管理员";
+            }
+            else if(this.list[i].usertype==5){
+              this.list[i].usertype="资产负责人(使用人)";
+            }
+          }
         });
       },
       handleAdd() {

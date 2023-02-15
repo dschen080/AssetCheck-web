@@ -34,6 +34,7 @@
       <i class="el-icon-tickets"></i>
       <span>数据列表</span>
       <el-button size="mini" class="btn-add" @click="handleAdd()" style="margin-left: 20px">添加资产</el-button>
+      <el-button size="mini" class="btn-add" @click="assetTaskAssign()" style="margin-left: 20px">发布盘点任务</el-button>
       <el-button size="mini" class="btn-add" @click="downloadexcel()" style="margin-left: 60px">下载批量导入模板文件</el-button>
       <div>
       <el-upload
@@ -58,10 +59,10 @@
                 @selection-change="handleSelectionChange"
                 v-loading="listLoading" border>
         <el-table-column type="selection" width="60" align="center"></el-table-column>
-        <el-table-column label="资产单位代码" width="200" align="center">
+        <el-table-column label="资产单位代码" width="120" align="center">
           <template slot-scope="scope">{{scope.row.orgid}}</template>
         </el-table-column>
-        <el-table-column label="资产编号" width="200" align="center">
+        <el-table-column label="资产编号" width="100" align="center">
           <template slot-scope="scope">{{scope.row.assetcode}}</template>
         </el-table-column>
         <el-table-column label="资产名称" width="200" align="center">
@@ -70,70 +71,70 @@
         <el-table-column label="GS1编码" width="200" align="center">
           <template slot-scope="scope">{{scope.row.code4gs1}}</template>
         </el-table-column>
-        <el-table-column label="资产原值" width="200" align="center">
+        <el-table-column label="资产原值" width="100" align="center">
           <template slot-scope="scope">{{scope.row.assetprice}}</template>
         </el-table-column>
-        <el-table-column label="取得日期" width="200" align="center">
+        <el-table-column label="取得日期" width="120" align="center">
           <template slot-scope="scope">{{scope.row.takedate}}</template>
         </el-table-column>
-        <el-table-column label="数量" width="200" align="center">
+        <el-table-column label="数量" width="100" align="center">
           <template slot-scope="scope">{{scope.row.amount}}</template>
         </el-table-column>
-        <el-table-column label="计量单位" width="200" align="center">
+        <el-table-column label="计量单位" width="100" align="center">
           <template slot-scope="scope">{{scope.row.measure}}</template>
         </el-table-column>
-        <el-table-column label="累计折旧" width="200" align="center">
+        <el-table-column label="累计折旧" width="100" align="center">
           <template slot-scope="scope">{{scope.row.accdepre}}</template>
         </el-table-column>
-        <el-table-column label="存放地点" width="200" align="center">
+        <el-table-column label="存放地点" width="100" align="center">
           <template slot-scope="scope">{{scope.row.storeloc}}</template>
         </el-table-column>
-        <el-table-column label="品牌" width="200" align="center">
+        <el-table-column label="品牌" width="100" align="center">
           <template slot-scope="scope">{{scope.row.brand}}</template>
         </el-table-column>
-        <el-table-column label="规格型号" width="200" align="center">
+        <el-table-column label="规格型号" width="100" align="center">
           <template slot-scope="scope">{{scope.row.specific}}</template>
         </el-table-column>
-        <el-table-column label="会计凭证号" width="200" align="center">
+        <el-table-column label="会计凭证号" width="100" align="center">
           <template slot-scope="scope">{{scope.row.accdocno}}</template>
         </el-table-column>
-        <el-table-column label="备注" width="200" align="center">
+        <el-table-column label="备注" width="100" align="center">
           <template slot-scope="scope">{{scope.row.notes}}</template>
         </el-table-column>
-        <el-table-column label="使用人" width="200" align="center">
+        <el-table-column label="使用人" width="100" align="center">
           <template slot-scope="scope">{{scope.row.assetuser}}</template>
         </el-table-column>
-        <el-table-column label="使用部门" width="200" align="center">
+        <el-table-column label="使用部门" width="100" align="center">
           <template slot-scope="scope">{{scope.row.assetdept}}</template>
         </el-table-column>
         <el-table-column label="资产分类" width="200" align="center">
           <template slot-scope="scope">{{scope.row.assetclass}}</template>
         </el-table-column>
-        <el-table-column label="资产国标大类" width="200" align="center">
+        <el-table-column label="资产国标大类" width="250" align="center">
           <template slot-scope="scope">{{scope.row.assetgbclass}}</template>
         </el-table-column>
-        <el-table-column label="使用方向" width="200" align="center">
+        <el-table-column label="使用方向" width="100" align="center">
           <template slot-scope="scope">{{scope.row.usetype}}</template>
         </el-table-column>
-        <el-table-column label="资产分类编码" width="200" align="center">
+        <el-table-column label="资产分类编码" width="100" align="center">
           <template slot-scope="scope">{{scope.row.assetclasscode}}</template>
         </el-table-column>
-        <el-table-column label="取得方式" width="200" align="center">
+        <el-table-column label="取得方式" width="100" align="center">
           <template slot-scope="scope">{{scope.row.takemode}}</template>
         </el-table-column>
-        <el-table-column label="坐落位置" width="200" align="center">
+        <el-table-column label="坐落位置" width="100" align="center">
           <template slot-scope="scope">{{scope.row.workloc}}</template>
         </el-table-column>
-        <el-table-column label="已提折旧月数" width="200" align="center">
+        <el-table-column label="已提折旧月数" width="100" align="center">
           <template slot-scope="scope">{{scope.row.accdepremonth}}</template>
         </el-table-column>
-        <el-table-column label="投入使用日期" width="200" align="center">
+        <el-table-column label="投入使用日期" width="100" align="center">
           <template slot-scope="scope">{{scope.row.firstusedate}}</template>
         </el-table-column>
-        <el-table-column label="记账日期" width="200" align="center">
+        <el-table-column label="记账日期" width="100" align="center">
           <template slot-scope="scope">{{scope.row.billingdate}}</template>
         </el-table-column>
-        <el-table-column label="资金来源" width="200" align="center">
+        <el-table-column label="资金来源" width="100" align="center">
           <template slot-scope="scope">{{scope.row.fundingsrc}}</template>
         </el-table-column>
         <el-table-column label="操作" width="180" align="center">
@@ -339,6 +340,16 @@
         <el-form-item label="任务摘要：">
           <el-input v-model="taskAssign.taskabstract" style="width: 250px"></el-input>
         </el-form-item>
+        <el-form-item label="任务发布方式：">
+          <el-select v-model="taskAssign.option" placeholder="请选择任务发布方式">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item label="盘点开始时间：">
           <el-date-picker
             v-model="taskAssign.taskbegin"
@@ -374,17 +385,16 @@
   const defaultListQuery = {
     pageNum: 1,
     pageSize: 5,
-    keyword: null,
-    assetdept: null
+    keyword: "",
+    assetdept: "",
   };
   const task = {
-    assetid: [],
     orgid: null,
     taskabstract: null,
     taskbegin: null,
     taskend: null,
+    option: null,
     username4unit: null,
-    username4unit2: null, //盘点者
   };
   const assetRec = {
     assetid: null,
@@ -421,14 +431,17 @@
       return {
         operates: [
           {
-            label: "批量打印",
+            label: "批量打印(先勾选待打印资产)",
             value: "print"
-          },
-          {
-            label: "发布盘点任务",
-            value: "taskAssign"
           }
         ],
+        options: [{
+          value: '2',
+          label: '各使用人盘点当前筛选的资产'
+        },{
+          value: '1',
+          label: '各使用人盘点本单位所有资产'
+        }],
         operateType: null,
         listQuery: Object.assign({}, defaultListQuery),
         list: null,
@@ -445,7 +458,6 @@
         MultiQRCodeVisible: null,
         multipleSelection: [],
         multipleSelection2: [],
-        multipleSelectionids: [],
         taskAssign: Object.assign({}, task),
         taskVisible: null,
       }
@@ -537,7 +549,7 @@
         })
       },
       printQRCode(){
-        print({ printable: 'printqrcode', type: 'html' , header: 'test-print-js',style: '@page {size: 4.25in 2.36in;};',});
+        print({ printable: 'printqrcode', type: 'html',style: '@page {size: 4.25in 2.36in;};',});
       },
       handleDelete(index, row) {
         this.$confirm('是否要删除该单位?', '提示', {
@@ -587,7 +599,7 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          createAssetCheckTask(this.taskAssign).then(() => {
+          createAssetCheckTask(this.taskAssign,this.listQuery.keyword,this.listQuery.assetdept).then(() => {
             this.$message({
               message: '添加成功！',
               type: 'success'
@@ -606,14 +618,14 @@
           });
           return;
         }
-        if(this.multipleSelection==null||this.multipleSelection.length<1){
-          this.$message({
-            message: '请选择要操作的商品',
-            type: 'warning',
-            duration: 1000
-          });
-          return;
-        }
+        // if(this.multipleSelection==null||this.multipleSelection.length<1){
+        //   this.$message({
+        //     message: '请选择要操作的商品',
+        //     type: 'warning',
+        //     duration: 1000
+        //   });
+        //   return;
+        // }
         this.$confirm('是否要进行该批量操作?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -627,9 +639,6 @@
             case this.operates[0].value:
               this.multiPrintQRCode(); //批量打印
               break;
-            case this.operates[1].value:
-              this.assetTaskAssign();      //发布资产盘点任务
-              break;
             default:
               break;
           }
@@ -637,11 +646,18 @@
         });
       },
       assetTaskAssign(){  //发布资产盘点任务
-        this.multipleSelection2 = this.multipleSelection;
-        this.taskAssign.assetid = [];
-        for(let i=0; i<this.multipleSelection2.length; i++){
-          this.taskAssign.assetid.push(this.multipleSelection2[i].assetid);
-        }
+        // this.multipleSelection2 = this.multipleSelection;
+        // this.taskAssign.assetid = [];
+        // for(let i=0; i<this.multipleSelection2.length; i++){
+        //   this.taskAssign.assetid.push(this.multipleSelection2[i].assetid);
+        // }
+
+        //打开前先清空上一次数据
+        this.taskAssign.taskabstract = null;
+        this.taskAssign.option = null;
+        this.taskAssign.taskbegin = null;
+        this.taskAssign.taskend = null;
+        //
         this.taskVisible = true;
         this.taskAssign.orgid = this.orgid;
         this.taskAssign.username4unit = this.username4unit;
@@ -650,13 +666,11 @@
         this.multipleSelection2 = this.multipleSelection;
         this.MultiQRCodeVisible = true;
         this.closeCode();
-        this.multipleSelectionids = [];
 
         for(let i=0; i<this.multipleSelection2.length;i++){
           this.$nextTick(function(){
           var qrid = "qrCode"+this.multipleSelection2[i].assetid;
           var qrid2 = "printqrcode"+this.multipleSelection2[i].assetid;
-          this.multipleSelectionids.push(qrid2);
           var qrurl = process.env.BASE_API+"?orgid="+this.multipleSelection2[i].orgid+"&code4GS1="+this.multipleSelection2[i].code4gs1;
           this.createQRcode(qrid,qrurl);
         })

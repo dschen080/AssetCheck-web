@@ -11,13 +11,13 @@
                 :data="list"
                 style="width: 100%;"
                 v-loading="listLoading" border>
-        <el-table-column label="资产单位代码" width="200" align="center">
+        <el-table-column label="资产单位代码" width="100" align="center">
           <template slot-scope="scope">{{scope.row.orgid}}</template>
         </el-table-column>
-        <el-table-column label="单位全名" width="300" align="center">
+        <el-table-column label="单位全名" width="200" align="center">
           <template slot-scope="scope">{{scope.row.unitname}}</template>
         </el-table-column>
-        <el-table-column label="单位类型" width="150" align="center">
+        <el-table-column label="单位类型" width="100" align="center">
           <template slot-scope="scope">{{scope.row.usertype}}</template>
         </el-table-column>
         <el-table-column label="单位联系人" width="150" align="center">

@@ -1,10 +1,17 @@
 import request from '@/utils/request'
 
-export function createAssetCheckTask(data){
+export function createAssetCheckTask(data,keyword,assetdept){
+  if(keyword==""){
+    keyword="null";
+  }
+  if(assetdept==""){
+    assetdept="null";
+  }
   return request({
-    url: '/assetchecktask/create',
+    url: '/assetchecktask/create/'+keyword+'/'+assetdept,
     method: 'post',
-    data: data
+    data: data,
+    timeout: 100 * 1000,
   })
 }
 

@@ -10,11 +10,11 @@ router.beforeEach((to, from, next) => {
   NProgress.start()
   if (getToken()) {
     //已登录的情况下直接跳转至对应界面
-    if (to.path === '/login') {
+    if (to.path === '/login' && store.getters.roles.length != 0) { //to.path === '/login'
       if(store.getters.roles[0]==1){
-        next({ path: '/unit' })
+        next({ path: '/unit/asset' })
       }else if(store.getters.roles[0]==3){
-        next({ path: '/depart' })
+        next({ path: '/depart/asset' })
       }
       NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle it
     }else {

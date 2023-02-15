@@ -119,7 +119,22 @@
           this.listloading = false;
           this.list = response.data.list;
           this.total = response.data.total;
+          for(let i in this.list){
+            if(this.list[i].checkresult==0){
+              this.list[i].checkresult="未盘点";
+            }
+            else if(this.list[i].checkresult==1){
+              this.list[i].checkresult="盘点正确";
+            }
+            else if(this.list[i].checkresult==3){
+              this.list[i].checkresult="盘亏";
+            }
+            else if(this.list[i].checkresult==5){
+              this.list[i].checkresult="盘盈";
+            }
+          }
         });
+        alert(this.list.length)
       },
     }
   }

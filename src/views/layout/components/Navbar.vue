@@ -4,6 +4,7 @@
     <breadcrumb></breadcrumb>
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
+        {{fullname}}
         <i class="el-icon-s-tools" style="font-size:25px;"></i>
       </div>
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
@@ -27,6 +28,14 @@ import Hamburger from '@/components/Hamburger'
 import store from '@/store'
 
 export default {
+  data(){
+    return{
+      fullname: null,
+    }
+  },
+  created(){
+    this.fullname = store.getters.fullname;
+  },
   components: {
     Breadcrumb,
     Hamburger
@@ -50,7 +59,7 @@ export default {
       }
       else{
         this.$store.dispatch('LogOut').then(() => {
-        var url = window.location.href.split('#')[0]+'#/login?code='+store.getters.name;
+        var url = window.location.href.split('#')[0]+'#/login?code='+store.getters.orgid;
         window.location.href = url;
         //this.$router.push({path: '/login'})
         location.reload(); // 为了重新实例化vue-router对象 避免bug

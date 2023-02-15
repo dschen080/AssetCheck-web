@@ -10,34 +10,34 @@
                 :data="list"
                 style="width: 100%;"
                 v-loading="listLoading" border>
-        <el-table-column label="任务摘要" width="200" align="center">
+        <el-table-column label="任务摘要" width="150" align="center">
           <template slot-scope="scope">{{scope.row.taskabstract}}</template>
         </el-table-column>
-        <el-table-column label="盘点开始时间" width="200" align="center">
+        <el-table-column label="盘点开始时间" width="160" align="center">
           <template slot-scope="scope">{{scope.row.taskbegin}}</template>
         </el-table-column>
-        <el-table-column label="盘点结束时间" width="200" align="center">
+        <el-table-column label="盘点结束时间" width="160" align="center">
           <template slot-scope="scope">{{scope.row.taskend}}</template>
         </el-table-column>
-        <el-table-column label="任务发起人" width="200" align="center">
+        <el-table-column label="任务发起人id" width="120" align="center">
           <template slot-scope="scope">{{scope.row.username4unit}}</template>
         </el-table-column>
-        <el-table-column label="盘点总数" width="200" align="center">
+        <el-table-column label="盘点总数" width="100" align="center">
           <template slot-scope="scope">{{scope.row.checksum}}</template>
         </el-table-column>
-        <el-table-column label="盘点正确数量" width="200" align="center">
+        <el-table-column label="盘点正确数量" width="120" align="center">
           <template slot-scope="scope">{{scope.row.checked}}</template>
         </el-table-column>
-        <el-table-column label="盘亏数量" width="200" align="center">
+        <el-table-column label="盘亏数量" width="100" align="center">
           <template slot-scope="scope">{{scope.row.loss}}</template>
         </el-table-column>
-        <el-table-column label="待盘点数量" width="200" align="center">
+        <el-table-column label="待盘点数量" width="100" align="center">
           <template slot-scope="scope">{{scope.row.tobechecked}}</template>
         </el-table-column>
-        <el-table-column label="创建时间" width="200" align="center">
+        <el-table-column label="创建时间" align="center">
           <template slot-scope="scope">{{scope.row.createtime}}</template>
         </el-table-column>
-        <el-table-column label="操作" width="180" align="center">
+        <el-table-column label="操作" width="140" align="center">
           <template slot-scope="scope">
             <el-button size="mini"
                        type="text"
