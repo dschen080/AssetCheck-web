@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets"></i>
-      <span>数据列表.</span>
+      <span>数据列表</span>
       <el-button size="mini" class="btn-add" @click="handleAdd()" style="margin-left: 20px">添加单位资产管理员</el-button>
     </el-card>
 
