@@ -9,7 +9,7 @@
                 :data="list"
                 style="width: 100%;"
                 v-loading="listLoading" border>
-        <el-table-column label="资产单位代码" width="200" align="center">
+        <el-table-column label="资产单位代码" width="100" align="center">
           <template slot-scope="scope">{{scope.row.orgid}}</template>
         </el-table-column>
         <el-table-column label="记录号" width="100" align="center">

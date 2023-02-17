@@ -12,7 +12,7 @@
         <el-table-column label="资产单位代码" width="200" align="center">
           <template slot-scope="scope">{{scope.row.orgid}}</template>
         </el-table-column>
-        <el-table-column label="记录号" width="200" align="center">
+        <el-table-column label="记录号" width="100" align="center">
           <template slot-scope="scope">{{scope.row.assetid}}</template>
         </el-table-column>
         <el-table-column label="资产编号" width="200" align="center">
@@ -21,16 +21,16 @@
         <el-table-column label="资产名称" width="200" align="center">
           <template slot-scope="scope">{{scope.row.assetcode}}</template>
         </el-table-column>
-        <el-table-column label="盘点结果" width="200" align="center">
+        <el-table-column label="盘点结果" width="100" align="center">
           <template slot-scope="scope">{{scope.row.checkresult}}</template>
         </el-table-column>
-        <el-table-column label="盘点方式" width="200" align="center">
+        <el-table-column label="盘点方式" width="100" align="center">
           <template slot-scope="scope">{{scope.row.checkmode}}</template>
         </el-table-column>
-        <el-table-column label="盘点人" width="200" align="center">
+        <el-table-column label="盘点人" width="100" align="center">
           <template slot-scope="scope">{{scope.row.username4unit}}</template>
         </el-table-column>
-        <el-table-column label="更新时间" width="200" align="center">
+        <el-table-column label="更新时间" align="center">
           <template slot-scope="scope">{{scope.row.updatetime}}</template>
         </el-table-column>
         <el-table-column label="操作" width="180" align="center">
