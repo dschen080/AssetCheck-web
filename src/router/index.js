@@ -115,12 +115,12 @@ export const asyncRouterMap = [
       meta: {title: '盘点历史管理', icon: 'product-list'},
       hidden: true
     },
-    {
-      path: 'his2',
-      name: 'his2',
-      component: () => import('@/views/depart/his2'),
-      meta: {title: '盘点历史管理', icon: 'product-list'}
-    },
+    // {
+    //   path: 'his2',
+    //   name: 'his2',
+    //   component: () => import('@/views/depart/his2'),
+    //   meta: {title: '盘点历史管理', icon: 'product-list'}
+    // },
   ]
   },
   {path: '*', name: '404', redirect: '/404', hidden: true}

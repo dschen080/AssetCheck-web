@@ -47,7 +47,7 @@
         :on-success="uploadsuccess"
         :data = {orgid}
         :file-list="fileList">
-        <el-button size="small" type="primary">批量上传</el-button>
+        <el-button size="small" type="primary">资产批量导入</el-button>
       </el-upload>
       </div>
     </el-card>

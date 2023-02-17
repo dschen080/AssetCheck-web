@@ -124,7 +124,7 @@
         });
       },
       handleView(index, row) {
-        this.$router.push({path: '/unit/his', query: {taskid: row.taskid}})
+        this.$router.push({path: '/depart/his', query: {taskid: row.taskid}})
       },
       getList(orgid){
         this.listloading = true;

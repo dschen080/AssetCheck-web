@@ -41,13 +41,10 @@
         style = "position: relative;left: 0px; top: 10px;"
         class="upload-demo"
         :action="api"
-        :on-preview="handlePreview"
-        :on-remove="handleRemove"
-        :before-remove="beforeRemove"
         :on-success="uploadsuccess"
         :data = {orgid}
         :file-list="fileList">
-        <el-button size="small" type="primary">批量上传</el-button>
+        <el-button size="small" type="primary">资产批量导入</el-button>
       </el-upload>
       </div>
     </el-card>
@@ -470,6 +467,9 @@
       this.getUserList();
     },
     methods: {
+      uploadsuccess(response, file, fileList){
+        this.getList();
+      },
       handleSizeChange(val) {
         this.listQuery.pageNum = 1;
         this.listQuery.pageSize = val;

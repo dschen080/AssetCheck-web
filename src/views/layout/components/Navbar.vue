@@ -63,6 +63,7 @@ export default {
         window.location.href = url;
         //this.$router.push({path: '/login'})
         location.reload(); // 为了重新实例化vue-router对象 避免bug
+        //alert(window.location.href);
         })
       }
     }

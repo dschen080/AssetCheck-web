@@ -71,7 +71,8 @@
   import {fetchHis2,deleteHis} from '@/api/his';
   const defaultListQuery = {
       pageNum: 1,
-      pageSize: 5
+      pageSize: 5,
+      orgid: null
     };
 
   export default {
@@ -85,17 +86,19 @@
       }
     },
     created(){
+      this.listQuery.orgid = store.getters.orgid;
       this.getList();
     },
     methods: {
       handleSizeChange(val) {
         this.listQuery.pageNum = 1;
         this.listQuery.pageSize = val;
-        this.getList(store.getters.orgid);
+        this.listQuery.orgid = store.getters.orgid;
+        this.getList();
       },
       handleCurrentChange(val) {
         this.listQuery.pageNum = val;
-        this.getList(store.getters.orgid);
+        this.getList();
       },
       handleDelete(index, row) {
         this.$confirm('是否要删除该活动?', '提示', {
