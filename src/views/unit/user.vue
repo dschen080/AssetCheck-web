@@ -66,7 +66,7 @@
     </div>
 
     <el-dialog
-      title="添加部门资产管理员信息"
+      :title="title"
       :visible.sync="dialogVisible"
       width="40%">
       <el-form :model="newList"
@@ -102,7 +102,7 @@
 
 
 <script>
-  import {fetchUser,createUser3,updateUser3,deleteUser} from '@/api/root_user';
+  import {fetchUser2,createUser3,updateUser3,deleteUser} from '@/api/root_user';
   import store from '@/store';
   const defaultListQuery = {
     pageNum: 1,
@@ -130,7 +130,8 @@
         passwddisabled: false,
         total: null,
         newList:Object.assign({}, userListing),
-        isEdit: false
+        isEdit: false,
+        title: null,
       }
     },
     created(){
@@ -148,7 +149,7 @@
       },
       getList(orgid){
         this.listloading = true;
-        fetchUser(this.listQuery, orgid).then(response =>{
+        fetchUser2(this.listQuery, orgid).then(response =>{
           this.listloading = false;
           this.list = response.data.list;
           this.total = response.data.total;
@@ -166,6 +167,7 @@
         });
       },
       handleAdd() {
+        this.title = "添加部门管理员信息";
         this.orgiddisabled = false;
         this.passwddisabled = false;
         this.dialogVisible = true;
@@ -174,6 +176,7 @@
         this.newList.orgid = store.getters.orgid;
       },
       handleUpdate(index, row) {
+        this.title = "编辑部门管理员信息";
         this.orgiddisabled = true;
         this.passwddisabled = true;
         this.dialogVisible = true;

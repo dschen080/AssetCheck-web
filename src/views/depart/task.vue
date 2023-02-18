@@ -41,11 +41,6 @@
           <template slot-scope="scope">
             <el-button size="mini"
                        type="text"
-                       @click="handleUpdate(scope.$index, scope.row)">
-              编辑
-            </el-button>
-            <el-button size="mini"
-                       type="text"
                        @click="handleView(scope.$index, scope.row)">
               查看
             </el-button>

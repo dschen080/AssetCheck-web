@@ -66,7 +66,7 @@
     </div>
 
     <el-dialog
-      title="添加单位管理员信息"
+      :title="title"
       :visible.sync="dialogVisible"
       width="40%">
       <el-form :model="newList"
@@ -130,7 +130,8 @@
         sectdisabled: false,
         total: null,
         newList:Object.assign({}, userListing),
-        isEdit: false
+        isEdit: false,
+        title: null,
       }
     },
     created(){
@@ -166,6 +167,7 @@
         });
       },
       handleAdd() {
+        this.title="添加单位管理员信息";
         this.orgiddisabled = false;
         this.passwddisabled = false;
         this.dialogVisible = true;
@@ -175,6 +177,7 @@
         this.sectdisabled = true;
       },
       handleUpdate(index, row) {
+        this.title="编辑单位管理员信息";
         this.orgiddisabled = true;
         this.passwddisabled = true;
         this.dialogVisible = true;

@@ -2,6 +2,14 @@ import request from '@/utils/request'
 
 export function fetchUser(params,orgid){
   return request({
+    url: '/userlistingRoot/selectroot/'+orgid,
+    method: 'get',
+    params: params
+  })
+}
+
+export function fetchUser2(params,orgid){
+  return request({
     url: '/userlistingRoot/select/'+orgid,
     method: 'get',
     params: params

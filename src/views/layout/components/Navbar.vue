@@ -8,11 +8,9 @@
         <i class="el-icon-s-tools" style="font-size:25px;"></i>
       </div>
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
-        <router-link class="inlineBlock" to="/">
-          <el-dropdown-item>
-            首页
-          </el-dropdown-item>
-        </router-link>
+        <el-dropdown-item>
+          易盘点V1.0
+        </el-dropdown-item>
         <el-dropdown-item divided>
           <span @click="logout" style="display:block;">退出</span>
         </el-dropdown-item>
